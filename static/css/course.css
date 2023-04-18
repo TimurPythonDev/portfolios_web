@@ -1,0 +1,90 @@
+.course {
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.course h6 {
+    opacity: 0.6;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.course h2 {
+    letter-spacing: 1px;
+    margin: 10px 0;
+}
+
+.course-preview {
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 30px;
+    max-width: 250px;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.course-preview img {
+    max-width: 100%;
+}
+
+.course-preview a {
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.course-info {
+    padding: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.top-container {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-align: right;
+    width: 250px;
+}
+
+.start {
+    color: rgb(51, 50, 50) !important;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    padding: 12px 25px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    letter-spacing: 1px;
+}
+
+.start:hover {
+    color: #999;
+}
+
+@media only screen and (max-width: 600px) {
+    .course {
+        display: block;
+        width: 300px;
+    }
+    .course-info {
+        padding-bottom: 60px;
+    }
+    .course-preview {
+        max-width: 300px;
+    }
+    .course .top-container + h6 {
+        visibility: hidden;
+    }
+}
