@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import os
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-p2*dg3=*ur(h)prg#ug%)*&fpkq8da7uwuf9#=b=2_8g5&z%%#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'portfolios.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'), #here
-        'USER': os.getenv('DB_USER'), #here
-        'PASSWORD': os.getenv('DB_PASS'), #here
+        'NAME': 'portfolios_web', #here
+        'USER': 'portfoliosuser', #here
+        'PASSWORD': 'portfolios_123', #here
         'HOST': 'localhost',
         'PORT': '5432',
     }
