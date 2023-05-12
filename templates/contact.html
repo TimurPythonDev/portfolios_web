@@ -1,49 +1,7 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Clark - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/animate.css">
-    
-    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/static/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="/static/css/aos.css">
-
-    <link rel="stylesheet" href="/static/css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="/static/css/flaticon.css">
-    <link rel="stylesheet" href="/static/css/icomoon.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Timur Karabaev</a>
-            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="oi oi-menu"></span> Menu
-            </button>
-  
-            <div class="collapse navbar-collapse" id="ftco-nav">
-              <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link"><span>About</span></a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link"><span>My Blog</span></a></li>
-                <li class="nav-item"><a href="academy.html" class="nav-link"><span>My academy</span></a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
-              </ul>
-            </div>
-          </div>
-    </nav>
+{% extends 'base.html' %}
+{% block title %} Contact | Timur Karabaev {% endblock title %}
+{% load static %}
+{% block content %}
 
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
         <div class="container">
@@ -55,56 +13,54 @@
             </div>
           </div>
   
-          <div class="row d-flex contact-info mb-5">
-            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-map-signs"></span>
+      
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="column-title">Send you message </h3>
+              <!-- contact form works with formspree.io  -->
+              <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
+              <form id="contact-form" action="{% url 'contact' %}" method="post" role="form">{% csrf_token %}  
+                <div class="error-container"></div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input class="form-control form-control-name" name="name" id="name" placeholder="" type="text" required>
                     </div>
-                    <h3 class="mb-4">Address</h3>
-                  <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-phone2"></span>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input class="form-control form-control-email" name="email" id="email" placeholder="" type="email"
+                        required>
                     </div>
-                    <h3 class="mb-4">Contact Number</h3>
-                  <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-paper-plane"></span>
-                    </div>
-                    <h3 class="mb-4">Email Address</h3>
-                  <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea class="form-control form-control-message" name="body" id="body" placeholder="" rows="10"
+                    required></textarea>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-globe"></span>
-                    </div>
-                    <h3 class="mb-4">Website</h3>
-                  <p><a href="#">yoursite.com</a></p>
+                <div class="text-right"><br>
+                  <button class="btn btn-primary solid blank" type="submit">Send Message</button>
                 </div>
+              </form>
             </div>
-          </div>
+      
+          </div><!-- Content row -->
   
-          <div class="row no-gutters block-9">
+          {% comment %} <div class="row no-gutters block-9">
             <div class="col-md-6 order-md-last d-flex">
-              <form action="#" class="bg-light p-4 p-md-5 contact-form">
+              <form action="{% url 'contact' %}" method="post" class="bg-light p-4 p-md-5 contact-form">
+                 {% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Your Name">
+                  <input type="text" class="form-control" placeholder="Your Name" name='name'>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Your Email">
+                  <input type="text" class="form-control" placeholder="Your Email" name="email">
                 </div>
                 <div class="form-group">
-                  <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                  <textarea name="body" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -116,7 +72,7 @@
             <div class="col-md-6 d-flex">
                 <div class="img" style="background-image: url(images/about.jpg);"></div>
             </div>
-          </div>
+          </div> {% endcomment %}
         </div>
     </section>
 
@@ -124,42 +80,4 @@
 
 
 
-
-
-	<footer class="ftco-footer ftco-section">
-        <div class="container">
-          <div class="col-md-12 text-center">
-              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Timur Karabaev <i class="icon-heart color-danger" aria-hidden="true"></i> 
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-  </div>
-  </div>
-      </footer>
-      
-
-
-
-
-
-
-
-
-
-
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/static/js/popper.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/jquery.easing.1.3.js"></script>
-<script src="/static/js/jquery.waypoints.min.js"></script>
-<script src="/static/js/jquery.stellar.min.js"></script>
-<script src="/static/js/owl.carousel.min.js"></script>
-<script src="/static/js/jquery.magnific-popup.min.js"></script>
-<script src="/static/js/aos.js"></script>
-<script src="/static/js/jquery.animateNumber.min.js"></script>
-<script src="/static/js/scrollax.min.js"></script>
-
-<script src="/static/js/main.js"></script>
-  
-</body>
-</html>
+{% endblock content %}

@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
-
+from datetime import timezone
 
 
 class ImageHomePage(models.Model):
@@ -81,8 +81,7 @@ class ProjectForingKeyName(models.Model):
     	verbose_name = 'Project Name'
 
     def __str__(self):
-        return self.title
-
+          return self.title
 
 
 class ProjectName(models.Model):
@@ -105,7 +104,7 @@ class ProjectName(models.Model):
         return self.year_completed.strftime('%Y')
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 
 class ProjectTag(models.Model):
@@ -128,7 +127,7 @@ class BlogTag(models.Model):
 
 
 class ProjectComment(models.Model):
-    project = models.ForeignKey(ProjectName, on_delete=models.CASCADE)
+    project = models.ForeignKey(ProjectName, on_delete=models.CASCADE,related_name='comment_set')
     name = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -154,10 +153,14 @@ class MyBlog(models.Model):
     class Meta:
         verbose_name = 'My Blog'
 
+    def publish(self):
+        self.created = models.DateTimeField(default=timezone.now)
+        self.save()
+
 
 
 class BlogComment(models.Model):
-    project = models.ForeignKey(MyBlog, on_delete=models.CASCADE)
+    project = models.ForeignKey(MyBlog, on_delete=models.CASCADE,related_name='comment_set')
     name = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
